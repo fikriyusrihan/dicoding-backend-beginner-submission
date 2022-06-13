@@ -11,7 +11,8 @@
   "author": "Fikri Yusrihan",
   "license": "ISC",
   "dependencies": {
-    "@hapi/hapi": "^20.2.2"
+    "@hapi/hapi": "^20.2.2",
+    "nanoid": "^4.0.0"
   },
   "devDependencies": {
     "eslint": "^8.17.0",
