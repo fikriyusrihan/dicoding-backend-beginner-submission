@@ -1,0 +1,12 @@
+{
+  "name": "bookshelf-api",
+  "version": "1.0.0",
+  "description": "Dicoding back-end beginner course submission",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fikri Yusrihan",
+  "license": "ISC"
+}
