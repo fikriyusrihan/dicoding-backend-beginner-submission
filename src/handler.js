@@ -84,4 +84,23 @@ const addBookHandler = (request, h) => {
   return response;
 };
 
-export {addBookHandler};
+
+const getAllBooksHandler = (_, h) => {
+  const booksResult = [];
+  books.forEach((book) => {
+    const {id, name, publisher} = book;
+    booksResult.push({id, name, publisher});
+  });
+
+  const response = h.response({
+    status: 'success',
+    data: {
+      books: booksResult,
+    },
+  });
+
+  response.code(200);
+  return response;
+};
+
+export {addBookHandler, getAllBooksHandler};
