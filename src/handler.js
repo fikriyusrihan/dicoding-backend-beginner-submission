@@ -85,12 +85,45 @@ const addBookHandler = (request, h) => {
 };
 
 
-const getAllBooksHandler = (_, h) => {
+const getAllBooksHandler = (request, h) => {
+  const {name, reading, finished} = request.query;
   const booksResult = [];
+
   books.forEach((book) => {
     const {id, name, publisher} = book;
     booksResult.push({id, name, publisher});
   });
+
+
+  if (name !== undefined) {
+    const filteredBooks = booksResult.filter((book) => book.name.toLowerCase().includes(name.toLowerCase()));
+
+    booksResult.length = 0;
+    filteredBooks.forEach((book) => {
+      const {id, name, publisher} = book;
+      booksResult.push({id, name, publisher});
+    });
+  }
+
+  if (reading !== undefined) {
+    const filteredBooks = books.filter((book) => book.reading == reading);
+
+    booksResult.length = 0;
+    filteredBooks.forEach((book) => {
+      const {id, name, publisher} = book;
+      booksResult.push({id, name, publisher});
+    });
+  }
+
+  if (finished !== undefined) {
+    const filteredBooks = books.filter((book) => book.finished == finished);
+
+    booksResult.length = 0;
+    filteredBooks.forEach((book) => {
+      const {id, name, publisher} = book;
+      booksResult.push({id, name, publisher});
+    });
+  }
 
   const response = h.response({
     status: 'success',
